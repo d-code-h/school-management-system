@@ -12,3 +12,12 @@ declare interface Attendance {
   studentId: string;
   lessonId: number;
 }
+
+declare interface EventType {
+  id: number;
+  title: string;
+  description: string;
+  startTime: Date;
+  endTime: Date;
+  classId: number;
+}

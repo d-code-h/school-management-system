@@ -128,9 +128,9 @@ const getRandomWeekday = () => {
 
   return randomDate;
 };
-const attendance: Attendance[] = [];
+const attendances: Attendance[] = [];
 for (let i = 1; i <= 10; i++) {
-  attendance.push({
+  attendances.push({
     date: getRandomWeekday(),
     present: [true, false][Math.floor(Math.random() * 2)],
     studentId: `student${i}`,
@@ -138,8 +138,21 @@ for (let i = 1; i <= 10; i++) {
   });
 }
 
-export { attendance };
+// EVENT
 
+const events: EventType[] = [];
+for (let i = 1; i <= 5; i++) {
+  events.push({
+    id: i,
+    title: `Event ${i}`,
+    description: `Description for Event ${i}`,
+    startTime: new Date(new Date().setHours(new Date().getHours() + 1)),
+    endTime: new Date(new Date().setHours(new Date().getHours() + 2)),
+    classId: (i % 5) + 1,
+  });
+}
+
+// Finance Data
 export const FinanceData = [
   {
     name: 'Jan',
@@ -202,3 +215,5 @@ export const FinanceData = [
     expense: 4300,
   },
 ];
+
+export { attendances, events };

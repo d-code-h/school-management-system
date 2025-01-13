@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AttendanceChart from './AttendanceChart';
-import { attendance } from '@/constants';
+import { attendances } from '@/constants';
 
 const AttendanceChartContainer = () => {
   // Format class days in the week
@@ -18,7 +18,7 @@ const AttendanceChartContainer = () => {
     };
 
   // Formulate each student weekly attendance
-  attendance.forEach((item) => {
+  attendances.forEach((item) => {
     const itemDate = item.date;
     const dayOfWeek = itemDate.getDay();
 
