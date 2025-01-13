@@ -28,3 +28,19 @@ declare interface Announcement {
   date: Date;
   classId: number;
 }
+
+declare interface StudentsType {
+  id: string;
+  username: string;
+  name: string;
+  surname: string;
+  email: string;
+  phone: string;
+  address: string;
+  bloodType: string;
+  sex: 'Male' | 'Female';
+  parentId: string;
+  gradeId: number;
+  classId: number;
+  birthday: Date;
+}

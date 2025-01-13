@@ -113,56 +113,6 @@ export const menuItems = [
   },
 ];
 
-// Attendance Logic
-const getRandomWeekday = () => {
-  const start = new Date('2025-01-01');
-  const end = new Date('2025-12-31');
-
-  let randomDate;
-
-  do {
-    const timeDiff = end.getTime() - start.getTime();
-    const randomTime = start.getTime() + Math.random() * timeDiff;
-    randomDate = new Date(randomTime);
-  } while (randomDate.getDay() === 0 || randomDate.getDay() === 6); // Exclude Sunday (0) and Saturday (6)
-
-  return randomDate;
-};
-const attendances: Attendance[] = [];
-for (let i = 1; i <= 10; i++) {
-  attendances.push({
-    date: getRandomWeekday(),
-    present: [true, false][Math.floor(Math.random() * 2)],
-    studentId: `student${i}`,
-    lessonId: (i % 30) + 1,
-  });
-}
-
-// Event Logic
-const events: EventType[] = [];
-for (let i = 1; i <= 5; i++) {
-  events.push({
-    id: i,
-    title: `Event ${i}`,
-    description: `Description for Event ${i}`,
-    startTime: new Date(new Date().setHours(new Date().getHours() + 1)),
-    endTime: new Date(new Date().setHours(new Date().getHours() + 2)),
-    classId: (i % 5) + 1,
-  });
-}
-
-// Announcement logic
-const announcements: Announcement[] = [];
-
-for (let i = 1; i <= 5; i++) {
-  announcements.push({
-    title: `Announcement ${i}`,
-    description: `Description for Announcement ${i}`,
-    date: new Date(),
-    classId: (i % 5) + 1,
-  });
-}
-
 // Finance Data
 export const FinanceData = [
   {
@@ -227,4 +177,93 @@ export const FinanceData = [
   },
 ];
 
-export { attendances, events, announcements };
+// Attendance Logic
+const getRandomWeekday = () => {
+  const start = new Date('2025-01-01');
+  const end = new Date('2025-12-31');
+
+  let randomDate;
+
+  do {
+    const timeDiff = end.getTime() - start.getTime();
+    const randomTime = start.getTime() + Math.random() * timeDiff;
+    randomDate = new Date(randomTime);
+  } while (randomDate.getDay() === 0 || randomDate.getDay() === 6); // Exclude Sunday (0) and Saturday (6)
+
+  return randomDate;
+};
+const attendances: Attendance[] = [];
+for (let i = 1; i <= 10; i++) {
+  attendances.push({
+    date: getRandomWeekday(),
+    present: [true, false][Math.floor(Math.random() * 2)],
+    studentId: `student${i}`,
+    lessonId: (i % 30) + 1,
+  });
+}
+
+// Event Logic
+const events: EventType[] = [];
+for (let i = 1; i <= 5; i++) {
+  events.push({
+    id: i,
+    title: `Event ${i}`,
+    description: `Description for Event ${i}`,
+    startTime: new Date(new Date().setHours(new Date().getHours() + 1)),
+    endTime: new Date(new Date().setHours(new Date().getHours() + 2)),
+    classId: (i % 5) + 1,
+  });
+}
+
+// Announcement logic
+const announcements: Announcement[] = [];
+
+for (let i = 1; i <= 5; i++) {
+  announcements.push({
+    title: `Announcement ${i}`,
+    description: `Description for Announcement ${i}`,
+    date: new Date(),
+    classId: (i % 5) + 1,
+  });
+}
+
+// Student dummy details
+const students: StudentsType[] = [];
+const bloodType = ['O+', 'O-', 'A+', 'B+', 'AB', 'A-', 'B-'];
+for (let i = 1; i <= 50; i++) {
+  students.push({
+    id: `student${i}`,
+    username: `student${i}`,
+    name: `SName${i}`,
+    surname: `SSurname ${i}`,
+    email: `student${i}@example.com`,
+    phone: `987-654-321${i}`,
+    address: `Address${i}`,
+    bloodType: bloodType[Math.floor(Math.random() * 7)],
+    sex: i % 2 === 0 ? 'Male' : 'Female',
+    parentId: `parentId${Math.ceil(i / 2) % 25 || 25}`,
+    gradeId: (i % 6) + 1,
+    classId: (i % 6) + 1,
+    birthday: new Date(new Date().setFullYear(new Date().getFullYear() - 10)),
+  });
+}
+
+// Lessons dummy content
+// const lessons = [];
+// for (let i = 1; i <= 30; i++) {
+//   lessons.push({
+//     name: `Lesson${i}`,
+//     day: Day[
+//       Object.keys(Day)[
+//         Math.floor(Math.random() * Object.keys(Day).length)
+//       ] as keyof typeof Day
+//     ],
+//     startTime: new Date(new Date().setHours(new Date().getHours() + 1)),
+//     endTime: new Date(new Date().setHours(new Date().getHours() + 3)),
+//     subjectId: (i % 10) + 1,
+//     classId: (i % 6) + 1,
+//     teacherId: `teacher${(i % 15) + 1}`,
+//   });
+// }
+
+export { attendances, events, announcements, students };
