@@ -113,7 +113,7 @@ export const menuItems = [
   },
 ];
 
-// ATTENDANCE
+// Attendance Logic
 const getRandomWeekday = () => {
   const start = new Date('2025-01-01');
   const end = new Date('2025-12-31');
@@ -138,8 +138,7 @@ for (let i = 1; i <= 10; i++) {
   });
 }
 
-// EVENT
-
+// Event Logic
 const events: EventType[] = [];
 for (let i = 1; i <= 5; i++) {
   events.push({
@@ -148,6 +147,18 @@ for (let i = 1; i <= 5; i++) {
     description: `Description for Event ${i}`,
     startTime: new Date(new Date().setHours(new Date().getHours() + 1)),
     endTime: new Date(new Date().setHours(new Date().getHours() + 2)),
+    classId: (i % 5) + 1,
+  });
+}
+
+// Announcement logic
+const announcements: Announcement[] = [];
+
+for (let i = 1; i <= 5; i++) {
+  announcements.push({
+    title: `Announcement ${i}`,
+    description: `Description for Announcement ${i}`,
+    date: new Date(),
     classId: (i % 5) + 1,
   });
 }
@@ -216,4 +227,4 @@ export const FinanceData = [
   },
 ];
 
-export { attendances, events };
+export { attendances, events, announcements };

@@ -21,3 +21,10 @@ declare interface EventType {
   endTime: Date;
   classId: number;
 }
+
+declare interface Announcement {
+  title: string;
+  description: string;
+  date: Date;
+  classId: number;
+}
