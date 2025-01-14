@@ -3,7 +3,7 @@ import { FieldError } from 'react-hook-form';
 interface InputFieldProps {
   label: string;
   type?: string;
-  register: any;
+  register: (name: string) => { onChange: () => void; onBlur: () => void; ref: (instance: HTMLInputElement | null) => void; name: string };
   name: string;
   defaultValue?: string;
   error?: FieldError;

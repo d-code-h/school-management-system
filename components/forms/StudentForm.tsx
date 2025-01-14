@@ -6,6 +6,7 @@ import { z } from 'zod';
 import InputField from '../InputField';
 import Image from 'next/image';
 
+// Student Registration Validation Schema
 const schema = z.object({
   username: z
     .string()

@@ -1,13 +1,15 @@
+import { ReactNode } from 'react';
+
 const Table = ({
   columns,
   renderRow,
   data,
 }: {
   columns: { header: string; accessor: string; className?: string }[];
-  renderRow: (item: {
-    [key: string]: string | number | boolean;
-  }) => React.ReactNode;
-  data: { [key: string]: string | number | boolean }[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  renderRow: (item: any) => ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  data: any[];
 }) => {
   return (
     <table className="w-full mt-4">

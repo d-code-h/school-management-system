@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { role } from '@/lib/data';
 
 const Navbar = () => {
   return (
@@ -29,7 +30,7 @@ const Navbar = () => {
           <span className="text-xs leading-3 font-medium">John Doe</span>
           <span className="text-[10px] text-gray-500 text-right">
             {/* TODO: Add user role here */}
-            User Role
+            {role}
           </span>
         </div>
         {/* Remove this after auth setup */}
