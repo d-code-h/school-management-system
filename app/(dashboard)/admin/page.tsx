@@ -6,11 +6,10 @@ import FinanceChart from '@/components/FinanceChart';
 import UserCard from '@/components/UserCard';
 import React from 'react';
 
-const AdminPage = ({
-  searchParams,
-}: {
-  searchParams: { [keys: string]: string | undefined };
-}) => {
+type SearchParams = Promise<{ [key: string]: string | undefined }>;
+
+const AdminPage = async (props: { searchParams: SearchParams }) => {
+  const searchParams = await props.searchParams;
   return (
     <div className="p-4 flex gap-4 flex-col md:flex-row">
       {/* Left */}
